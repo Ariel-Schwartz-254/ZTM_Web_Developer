@@ -9,6 +9,7 @@
     // add each element into a result array based on the following:
         // if lone element: append element into result array as is.
         //if NOT lone element:
+
             // group equal consecutive numbers into a sub array.
                 // calculate how many consecutive numbers current element has
                     // set initial number to 1.
@@ -24,33 +25,35 @@
                 
     // return the result array.
 
-const calculateConsecutive = (sorted_array, i) => {
-    do {
-        consecutive_nums = 2;
-        i++;
-    } while (sorted_array[i] === sorted_array[i + 1]) {
+const createSubarray = (element, num) => {
+    return Array(num).fill(element);
+}
+
+const calculateConsecutive = (array, idx) => {
+    consecutive_nums = 1;
+    while (array[idx] === array[idx + 1]) {
         consecutive_nums++;
-        i++;
+        idx++;
     }
     return consecutive_nums;
 }
 
-const populateResultArray = () => {
+const cleanRoom = (array) => {
+    let sorted_array = array.sort((a,b) => a - b);
+    let result_array = [];
+    let i = 0;
+
     while (i < sorted_array.length) {
         if (sorted_array[i] === sorted_array[i + 1]) {
-            calculateConsecutive()
+            consecutive_element_amount = calculateConsecutive(sorted_array, i);
+            sub_array = createSubarray(sorted_array[i], consecutive_element_amount);
 
+            result_array.push(sub_array);
+            i += consecutive_element_amount;
         } else {
             result_array.push(sorted_array[i]);
             i++;
         }
     }
-}
-
-    const cleanRoom = (array) => {
-    let sorted_array = array.sort();
-    let result_array = [];
-    let i = 0;
-
-    populateResultArray(sorted_array);
+    return result_array;
 }
