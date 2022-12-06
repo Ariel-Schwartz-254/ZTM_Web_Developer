@@ -9,7 +9,6 @@
     // add each element into a result array based on the following:
         // if lone element: append element into result array as is.
         //if NOT lone element:
-
             // group equal consecutive numbers into a sub array.
                 // calculate how many consecutive numbers current element has
                     // set initial number to 1.
@@ -17,12 +16,10 @@
                     // from current index, check if next number is equal to our number:
                         // if YES, add 1 to initial number; add 1 to current index; continue iterating.
                         // if NO, stop iterating.
-                // create an array with the same amount of elements
-                
+                // create an array with the same amount of elements 
             // append subarray to result array
             // add the number of consecutive elements to iteration counter (unless we can access the counter inside the function)
-            // continue iterating.
-                
+            // continue iterating.         
     // return the result array.
 
 const createSubarray = (element, num) => {
