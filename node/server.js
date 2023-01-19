@@ -1,8 +1,8 @@
-const express = require('express');
+// const express = require('express');
 
-const app = express();
+// const app = express();
 
-app.use(express.static(__dirname + '/public'))
+// app.use(express.static(__dirname + '/public'))
 
 // app.use((req, res, next) => {
 //     console.log('<h1>HELLOOOO</h1>');
@@ -30,8 +30,15 @@ app.use(express.static(__dirname + '/public'))
 //     }
 //     res.send('success');
 // })
+const app = require('http')
+.createServer((req, res) => res.sendDate('oh hi there!'));
 
-app.listen(3000);
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server is listening on port ${process.env.PORT}`);
+});
+
+console.log(process.env.PORT);
 
 // Just a heads up that in the next lecture 
 // I am using req.header inside of a console.log to retrieve the header data in a GET route. 
